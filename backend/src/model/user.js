@@ -1,7 +1,6 @@
 const bcrypt = require("bcrypt")
 const {Schema,model} = require("mongoose")
 
-
 const userSchama = new Schema({
     name: String,
     password: String

@@ -17,8 +17,6 @@ router.post("/register",async (req,res)=>{
             return res.status(500).json({error: `The user exists`})
         }
 
-        console.log(UserModel.encryptPassword(password))
-
         const newUser = new UserModel({
             name,
             password: await UserModel.encryptPassword(password)
