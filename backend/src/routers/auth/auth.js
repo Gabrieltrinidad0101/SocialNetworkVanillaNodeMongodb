@@ -1,8 +1,8 @@
 const {Router} = require("express");
-const UserModel = require("../../model/user")
+const User = require("../../model/user")
 const jwt = require("jsonwebtoken")
 const router = Router()
-
+const verifyAccount = require("../../middlewares/auth")
 
 router.post("/register",async (req,res)=>{
     try {
@@ -12,14 +12,14 @@ router.post("/register",async (req,res)=>{
         }else if(password.length < 8){
             return res.status(500).json({error: `The password need to be more than 8 character`})
         }
-        const existUser = await UserModel.findOne({name})
+        const existUser = await User.findOne({name})
         if(existUser){
             return res.status(500).json({error: `The user exists`})
         }
 
-        const newUser = new UserModel({
+        const newUser = new User({
             name,
-            password: await UserModel.encryptPassword(password)
+            password: await User.encryptPassword(password)
         })
         await newUser.save()
         const token = jwt.sign({id: newUser._id},process.env.KEY)
@@ -37,12 +37,12 @@ router.post("/login",async (req,res)=>{
             return res.status(500).json({error: `Completely all the data`})
         }
 
-        const user = await UserModel.findOne({name})
+        const user = await User.findOne({name})
         if(!user){
             return res.status(500).json({error: `The username or password are incorrect`})
         }
 
-        const macth = await UserModel.comparePassword(password,user.password)
+        const macth = await User.comparePassword(password,user.password)
         if(!macth){
             return res.status(500).json({error: `The username or password are incorrect`})
         }
@@ -53,6 +53,15 @@ router.post("/login",async (req,res)=>{
     } catch (error) {
         console.log(error)
         res.status(500).json({error: "Error in login"})        
+    }
+})
+
+router.get("/verify",verifyAccount,(req,res)=>{
+    try {
+        if(!req.userId) return res.status(400).json(false);
+        res.send(true)    
+    } catch (error) {
+        res.status(500).json("Error to verify your account")
     }
 })
 

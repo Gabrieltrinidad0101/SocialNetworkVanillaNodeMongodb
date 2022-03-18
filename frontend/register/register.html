@@ -10,14 +10,25 @@
 </head>
 <body>
     <div class="container">
+        <div class="brand-logo"></div>
+        <div class="brand-title">RED</div>
+        <div class="inputs">
+          <label>Name</label>
+          <input type="name" placeholder="name" id="name"/>
+          <label>PASSWORD</label>
+          <input type="password" placeholder="Min 8 charaters long" id="password" />
+          <button type="submit" id="sendData">Register</button>
+        </div>
+        <a href="/frontend/login/login.html">Login</a>
+      </div>
+    <!-- <div class="container">
         <form class="form">
             <h2>Register</h2>
             <input type="text" placeholder="Name" id="name">
             <input type="password" placeholder="Password" id="password">
             <input type="button" value="Register" id="sendData">
-            <a href="/frontend/login/login.html">Login</a>
         </form>
-    </div>
+    </div> -->
     <script src="./register.js" type="module"></script>
 </body>
 </html>
