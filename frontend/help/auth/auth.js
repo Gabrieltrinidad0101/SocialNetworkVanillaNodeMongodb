@@ -24,6 +24,8 @@ class Auth{
         const {token,error} = await Fetch({data: {name,password},url: this.url});
         if(error) return alert(error)
         this.#saveTokenInLocalStorage(token)
+        console.log("ok")
+        window.location = "/frontend/message/message.html"
     }
 }
 

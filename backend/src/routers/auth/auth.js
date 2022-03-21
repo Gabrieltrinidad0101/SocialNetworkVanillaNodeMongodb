@@ -59,7 +59,7 @@ router.post("/login",async (req,res)=>{
 router.get("/verify",verifyAccount,(req,res)=>{
     try {
         if(!req.userId) return res.status(400).json(false);
-        res.send(true)    
+        res.json({message: true})    
     } catch (error) {
         res.status(500).json("Error to verify your account")
     }
