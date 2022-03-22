@@ -1,0 +1,28 @@
+.container-message{
+    background: #fff;
+    display: grid;
+    grid-template-rows: 10% 85% 5%;
+}
+
+.chat-name{
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 234, 255);
+}
+
+.chat-name > p{
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.container-message .message{
+    overflow: auto;
+}
+
+.container-message .message-inputs{
+    display: grid;
+    grid-template-columns: calc( 90% - 15px) 10%;
+    gap: 10px;
+    justify-content: center;
+}
+
