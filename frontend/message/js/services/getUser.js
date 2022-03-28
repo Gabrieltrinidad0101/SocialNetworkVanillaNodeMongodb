@@ -9,5 +9,5 @@ export const getUsers =  async _=>{
     }
     )
     const info = await res.json()
-    return info
+    return info.message
 }

@@ -1,0 +1,19 @@
+.messageText{
+    width: auto;
+    margin: 10px;
+    border-radius: 20px;
+    padding: 10px;
+    color: #fff;
+    font-weight: 900;
+    font-size: 24px;
+    word-wrap: break-word;
+}
+
+
+.yourMessage{
+    background: red;
+}
+
+.myMessage{
+    background: green;
+}

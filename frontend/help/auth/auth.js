@@ -1,4 +1,4 @@
-import Fetch from "../fetch/fetch.js";
+import authenticationFecth from "../services/Authentication.js";
 class Auth{
     constructor(url){
         this.url = url
@@ -21,7 +21,7 @@ class Auth{
     async #sendDataToServer(){
         const {name,password} = this.#getInputData()
         if(!name || !password) return alert(`write your ${name ? "password" : "name" }`)
-        const {token,error} = await Fetch({data: {name,password},url: this.url});
+        const {token,error} = await authenticationFecth({data: {name,password},url: this.url});
         if(error) return alert(error)
         this.#saveTokenInLocalStorage(token)
         console.log("ok")
