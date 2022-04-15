@@ -5,6 +5,7 @@ const app = express()
 const morgan = require("morgan")
 const auth = require("./routers/auth/auth")
 const user = require("./routers/user/user")
+const conversation = require("./routers/conversation/conversation")
 //database connection
 require("./database")
 
@@ -15,6 +16,7 @@ app.use(morgan("dev"))
 //routers
 app.use("/auth",auth)
 app.use("/user",user)
+app.use("/conversation",conversation)
 
 const server = async _=>{
     await app.listen(3000)
