@@ -1,16 +1,12 @@
+const Message = require("../../model/message")
 const router = require("express").Router()
-const Conversation = require("../../model/message")
 
 
-router.post("/",(req,res)=>{
+router.post("/get",async (req,res)=> {
     try{
-        const {conversationId,sender,text} = req.body
-        const newMessage = new Message(
-            {
-                conversationId,sender,text
-            }
-        )
-        await newMessage.save()
+        const {senderId,receiverId} = req.body
+        var messages = await Message.find({senderIdAndreceiverId: `${senderId} ${receiverId}`})
+        res.status(200).json(messages)
     }catch{
         res.status(500).json({message: "error conversation"})
     }

@@ -1,8 +1,7 @@
 const {Schema,model} = require("mongoose")
 
 const messageSchama = new Schema({
-    conversationId: String,
-    sender: String,
+    senderIdAndreceiverId: String,
     text: String,
 },{
     timestamps: true

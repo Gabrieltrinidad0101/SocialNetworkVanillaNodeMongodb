@@ -58,10 +58,10 @@ router.post("/login",async (req,res)=>{
 
 router.get("/verify",verifyAccount,(req,res)=>{
     try {
-        if(!req.userId) return res.status(400).json(false);
-        res.json({message: true})
+        if(!req.userId) return res.status(400).json({"error": "token error"});
+        res.json({_id: req.userId})
     } catch (error) {
-        res.status(500).json("Error to verify your account")
+        res.status(500).json({"error": "error in verify account"})
     }
 })
 

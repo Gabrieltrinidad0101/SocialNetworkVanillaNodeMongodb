@@ -8,6 +8,7 @@ const auth = async _ => {
         })
     const info = await res.json()
     if(info.error) window.location = "/frontend/register/register.html"
+    return info
 }
 
-auth()
+export default auth

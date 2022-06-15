@@ -8,9 +8,8 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/navBar.css">
     <link rel="stylesheet" href="./css/message.css">
-    <link rel="stylesheet" href="./css/containerUser.css">
-    <link rel="stylesheet" href="./css/containerChat.css">
-    <link rel="stylesheet" href="./css/containerMessage.css">
+    <link rel="stylesheet" href="./css/users.css">
+    <link rel="stylesheet" href="./css/chat.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
 <body>
     <div class="container">
@@ -30,18 +29,18 @@
                 </div>
                 <div class="container-message">
                     <div class="chat-name"><p id="currentName">Name</p></div>
-                    <div class="message">
-                        <div class="yourMessage messageText">jsldkasjkdjaskdjaskdjaksjdkasjdkasjdkasjdkjaskdjaskdjkasjdakljskljsldkasjkdjaskdjaskdjaksjdkasjdkasjdkasjdkjaskdjaskdjkasjdakljskljsldkasjkdjaskdjaskdjaksjdkasjdkasjdkasjdkjaskdjaskdjkasjdakljsklssssssssssssssssss</div>
-                        <div class="myMessage messageText">dddd</div>
+                    <div class="messagesText">
+                        
                     </div>
                     <div class="message-inputs">
-                        <input type="text">
-                        <button>Send</button>
+                        <input id="messageToSend" type="text">
+                        <button id="sendMessage">Send</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.min.js"></script>
     <script src="./js/main.js" type="module"></script>
 </body>
 </html>
