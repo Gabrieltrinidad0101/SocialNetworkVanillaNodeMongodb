@@ -33,14 +33,13 @@ class Message{
     }
 
     async setMessage(){
-        console.log(this.receiverId)
         const messages = await getMessagesApi(this.id,this.receiverId)
         messages.forEach(message => {
-            if(message.senderIdAndreceiverId[0] == this.id){
+                const id = message.senderIdAndreceiverId.split(" ")[0]
+                const className = id === this.id ? "myMessage" : "yourMessage"
                 this.messagesText.innerHTML += `
-                <div class="myMessage messageText">${message.text}</div>
+                <div class="${className} messageText">${message.text}</div>
             `       
-            }
         });
 
     }

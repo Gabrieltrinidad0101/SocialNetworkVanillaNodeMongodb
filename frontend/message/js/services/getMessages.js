@@ -3,10 +3,12 @@ const PATH = "/message"
 const URL = `${SERVERURL}${PATH}`
 const getMessagesApi = async (senderId,receiverId) => {
     const token = localStorage.getItem("token");
-    console.log(`${senderId} ${receiverId}`)
     const res = await fetch(`${URL}/get`,{ 
-            method: "POST",
-            headers: {"x-access-token": token},
+            method: "post",
+            headers: {
+                "x-access-token": token,
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify({
                 senderId,
                 receiverId
